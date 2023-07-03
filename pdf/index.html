@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:title"
+      content="DigiPrintMon - Proxy Maker for Digimon Card Game"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="preview_image_sharing.png" />
+    <meta property="og:url" content="https://www.digiprintmon.com" />
+    <meta
+      property="og:description"
+      content="Create printable proxies for Digimon Card Game using DigiPrintMon! Enter your card list and download the PDF. Guides and instructions available"
+    />
+    <title>DigiPrintMon - Proxy Maker for Digimon Card Game</title>
+    <meta
+      name="description"
+      content="Create printable proxies for Digimon Card Game using DigiPrintMon! Enter your card list and download the PDF. Guides and instructions available."
+    />
+    <meta
+      name="keywords"
+      content="Digimon Card Game proxy, proxy maker, printable proxies, Digimon Card Game 2020"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script
+      src="https://kit.fontawesome.com/c217c3081d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="center_container">
+      <img
+        class="logo"
+        src="web_img/DigiPrintMon.png"
+        alt="DigiPrintmon Logo"
+      />
+      <div class="content_container">
+        <div class="instruction">
+          <h2>Instructions</h2>
+          <p>
+            Enter a card list in the textbox. <br />
+            Format for inserting cards:<br />
+            Quantity Name Id <br /><br />
+            The Name is optional.<br /><br />
+            You don't know how to make a list of cards? <br />
+            Use
+            <a target="_blank" href="https://digimoncard.dev"
+              >digimoncard.dev</a
+            >
+            !<br />
+            > Click Deck Builder<br />
+            > Insert cards by clicking them<br />
+            > In the Deck Builder click Import/Export<br />
+            > make sure to be in Export<br />
+            > Copy the text in the section and paste in the textbox here<br /><br />
+            Everything is ready,press download pdf and have fun !
+          </p>
+        </div>
+        <div class="interaction">
+          <h2>Insert card list here:</h2>
+          <textarea
+            id="cardList"
+            rows="10"
+            cols="50"
+            placeholder="Paste Card List here
+Format:
+Quantity Name Id
+Name is optional
+"
+          ></textarea>
+          <button onclick="generatePDF()">Download PDF</button>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer_icons">
+        <a target="_blank" href="https://github.com/FuutsuFIX"
+          ><i class="fa-brands fa-github"></i></a
+        ><a target="_blank" href="mailto:fpastori135@gmail.com"
+          ><i class="fa-solid fa-envelope"></i
+        ></a>
+      </div>
+      <a target="_blank" href="https://digimoncard.dev"
+        ><img src="web_img/carddev_logo.png" alt="Digimoncard.dev Logo"
+      /></a>
+      <p>
+        All images are provided by
+        <a target="_blank" href="https://digimoncard.dev">digimoncard.dev</a
+        >,<br />
+        please support their works.<br />
+        Please support the official release. Akiyoshi Hongo, Bandai, and Toei
+        Animation respectively own Digimon images, copyrights and trademarks.
+      </p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
