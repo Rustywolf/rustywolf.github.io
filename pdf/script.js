@@ -9,18 +9,12 @@ function generatePDF() {
         format: [320, 450],
     });
     const imageBaseUrl = "img/"; // Cartella locale
-    let xOffset = 23 + 88;
-    let yOffset = 23 + 63 - 88;
+    let xOffset = 22 + 89;
+    let yOffset = 22 + 64 - 89;
     let cardsPerPage = 0;
     let loadedImages = 0; // Conteggio delle immagini caricate
     let totalImages = 0; // Numero totale di immagini da caricare
     const invalidLines = []; // Array per tenere traccia delle linee errate
-
-    console.log(lines.length);
-    if (lines[0] === "") {
-        doc.save("DigiProxy.pdf");
-        return;
-    }
 
     lines.forEach(line => {
         // Ignora le linee che iniziano con //
@@ -30,7 +24,6 @@ function generatePDF() {
 
         const parts = line.split(/\s+(?=\S)/);
         const quantity = parseInt(parts[0]);
-        const name = parts.slice(1, -1).join(' ');
         const code = parts[parts.length - 1].trim().toUpperCase(); // Rimuovi gli spazi in eccesso dal codice e converti in maiuscolo
 
         if (code.length === 0) {
@@ -44,20 +37,20 @@ function generatePDF() {
 
         loadImage(imageUrl, (image) => {
             for (let i = 0; i < quantity; i++) {
-                doc.addImage(image, "JPEG", xOffset, yOffset, 63, 88, code, "NONE", 90);
+                doc.addImage(image, "JPEG", xOffset, yOffset, 64, 89, code, "NONE", 90);
 
-                xOffset += 93; // Larghezza della carta
+                xOffset += 89 + 4; // Larghezza della carta
                 cardsPerPage++;
 
                 if (cardsPerPage % 3 === 0) {
-                    xOffset = 23 + 88;
-                    yOffset += 68; // Altezza della carta
+                    xOffset = 22 + 89;
+                    yOffset += 64 + 4; // Altezza della carta
                 }
 
                 if (cardsPerPage === 18) {
                     doc.addPage();
-                    xOffset = 23 + 88;
-                    yOffset = 23 + 63 - 88;
+                    xOffset = 22 + 89;
+                    yOffset = 22 + 64 - 89;
                     cardsPerPage = 0;
                 }
             }
