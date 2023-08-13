@@ -1,6 +1,13 @@
 const { jsPDF } = window.jspdf;
 
-function generatePDF() {
+let cardData = null;
+
+async function generatePDF() {
+    if (!cardData) {
+        const res = await fetch("https://digimoncard.dev/data.php");
+        cardData = await res.json();
+    }
+
     const cardList = document.getElementById("cardList").value.trim();
     const lines = cardList.split("\n");
 
@@ -8,7 +15,6 @@ function generatePDF() {
         unit: "mm",
         format: [320, 450],
     });
-    const imageBaseUrl = "img/"; // Cartella locale
     let xOffset = 22 + 89;
     let yOffset = 22 + 64 - 89;
     let cardsPerPage = 0;
@@ -16,7 +22,16 @@ function generatePDF() {
     let totalImages = 0; // Numero totale di immagini da caricare
     const invalidLines = []; // Array per tenere traccia delle linee errate
 
+    function getImageUrl(cardid) {
+        for (let x = cardData.length - 1; x >= 0; x--) {
+            if (cardData[x].cardid === cardid) {
+                return cardData[x].imageUrl;
+            }
+        }
+    }
+
     lines.forEach(line => {
+        console.log(line);
         // Ignora le linee che iniziano con //
         if (line.trim().startsWith("//")) {
             return;
@@ -33,7 +48,7 @@ function generatePDF() {
 
         totalImages += quantity; // Aggiorna il numero totale di immagini da caricare
 
-        const imageUrl = imageBaseUrl + code + ".jpg";
+        const imageUrl = getImageUrl(code);
 
         loadImage(imageUrl, (image) => {
             for (let i = 0; i < quantity; i++) {
