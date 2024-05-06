@@ -1,0 +1,601 @@
+body {
+	background-color: #222222;
+}
+
+.hide {
+	display: none;
+}
+
+#loadingScreen {
+	text-align: center;
+	color: white;
+	padding: 30px;
+}
+
+#loadingScreen > p {
+	margin-top: 20px;
+}
+
+#speciesFilterInputWrapper, #speciesFilterCategoryWrapper {
+	position: relative;
+}
+
+#speciesFilterInputDropdown {
+	overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.highlight {
+	outline: -webkit-focus-ring-color auto 1px;
+}
+
+ul {
+	position: absolute;
+    width: 100%;
+    max-height: 400px;
+    list-style-type: none;
+    z-index: 2;
+    padding: 0;
+    outline: -webkit-focus-ring-color auto 1px;
+}
+
+li {
+	width: 100%;
+	background: #282727;
+	color: white;
+	padding: 2px;
+	border: solid thin #555;
+	border-top: unset;
+	cursor: pointer;
+    user-select: none;
+}
+
+li:hover {
+	background: #3c3a3a;
+}
+
+#helpContent {
+	color: white;
+}
+
+.modal-content {
+	background-color: #222222;
+    user-select: none;
+    border-radius: 5px;
+    border: solid thin white;
+    max-width: 541px;
+}
+
+.close {
+	color: white;
+    text-shadow: none;
+	float: right;
+}
+
+#speciesPanelInfoDisplay {
+	color: white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	clear: right;
+}
+
+.infoSprite {
+	height: 128px;
+	width: 128px;
+	image-rendering: pixelated;
+}
+
+.infoFormButton {
+	height: 33px;
+    background-color: #e83e3e;
+    border-radius: 7px;
+    border: solid thin black;
+    width: 33px;
+    display: inline-block;
+    margin: 2px;
+    line-height: 29px;
+    cursor: pointer;
+}
+
+.infoFormButton:hover {
+	background-color: #df6666;
+}
+
+.infoStatWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.infoStatLabel {
+	width: 33px;
+	text-align: left;
+}
+
+.infoStatValue {
+	width: 26px;
+	text-align: right;
+}
+
+.infoStatBar {
+	border-radius: 3px;
+	border: solid 1px black;
+	margin-left: 4px;
+	height: 17px;
+}
+
+.infoStatBar.rank1 {
+	background-color: #CC0000;
+}
+
+.infoStatBar.rank2 {
+	background-color: #ce4d00;
+}
+
+.infoStatBar.rank3 {
+	background-color: #ffe100;
+}
+
+.infoStatBar.rank4 {
+	background-color: #0d8d00;
+}
+
+.infoStatBar.rank5 {
+	background-color: #25d65e;
+}
+
+.infoStatBar.rank6 {
+	background-color: #15c9c7;
+}
+
+.infoTreeSprite {
+	width: 64px;
+	height: 64px;
+	image-rendering: pixelated;
+}
+
+.infoTreeSpriteWrapper {
+	padding: 3px;
+	margin: 2px;
+    cursor: pointer;
+    border: solid thin black;
+    border-radius: 3px;
+    background-color: #333333;
+	display: flex;
+    align-items: center;
+}
+
+.evoMethodWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.evoMethod span {
+	font-weight: 550;
+}
+
+.infoTreeArrow {
+	font-size: 20px;
+}
+
+.infoTreeSpriteWrapper:hover {
+	background-color: #444444;
+}
+
+.infoTreeWrapper {
+	display: flex;
+	align-items: stretch;
+}
+
+.infoTreeWrapper.outer {
+	justify-content: center;
+}
+
+.infoTreeWrapper.single {
+	align-items: center;
+}
+
+.infoTreeBranchWrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.infoFormsWrapper {
+	display: flex;
+    justify-content: center;
+	flex-wrap: wrap;
+}
+
+.infoChangelogTypesWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.infoChangelogBuff {
+	color: #05c905;
+}
+
+.infoChangelogNerf {
+	color: #f83f3f;
+}
+
+.infoTreeEvoLabel, .infoTreeFormsLabel, .coverageLabelWrapper, .infoChangelogLabel, .infoItemsLabel, .infoEggGroupsLabel, .infoCapLabel {
+	font-weight: 550;
+    font-size: 1.2rem;
+}
+
+.coverageMatchupsWrapper {
+	display: flex;
+    max-width: 534px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.typeMatchupMultiplier {
+	padding: 3px;
+    margin: 1px 3px 8px 3px;
+    border-radius: 15px;
+    background-color: #333333;
+	text-shadow: 1px 1px black;
+	border: 2px #555 solid;
+    box-shadow: 1px 2px #00000047;  
+}
+
+.typeMatchupMultiplier.x0 {
+	background-color: #121314;
+}
+
+.typeMatchupMultiplier.x25 {
+	background-color: #7c0000;
+}
+
+.typeMatchupMultiplier.x50 {
+	background-color: #a40000;
+}
+
+.typeMatchupMultiplier.x200 {
+	background-color: #4e9a06;
+}
+
+.typeMatchupMultiplier.x400 {
+	background-color: #73d216;
+}
+
+.tableName {
+	color: white;
+	font-weight: 550;
+	font-size: 1.2rem;
+}
+
+#speciesControl {
+	padding: 30px 30px 15px 30px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+#speciesFilterInput, #speciesFilterCategory, #speciesFilterSeparator, #showHelpButton, #saveFileInputWrapper {
+	display: block;
+    padding: 0.2rem;
+    border-radius: 3px;
+    border: 2px solid gray;
+	background: none;
+    color: white;
+    font-weight: 550;
+	appearance: none;
+	margin: 0;
+}
+
+#speciesFilterCategory {
+	text-align: center;
+	border-right: none;
+	border-radius: 3px 0 0 3px;
+	cursor: pointer;
+	width: 92px;
+	position: relative;
+    right: -1px;
+}
+
+#speciesFilterSeparator {
+	border-radius: 0;
+	border-left: none;
+	border-right: none;
+}
+
+#speciesFilterInput {
+	border-left: none;
+	border-radius: 0 3px 3px 0;
+	width: 145px;
+	position: relative;
+    left: -1px;
+}
+
+#showHelpButton {
+	width: 29px;
+    margin-right: 2px;
+}
+
+#saveFileInputWrapper {
+	margin-left: 16px;
+	padding: 0.2rem 0.6rem;
+	user-select: none;
+	cursor: pointer;
+}
+
+#saveFileInput {
+	display: none;
+}
+
+#activeFilters {
+	display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 12px;
+}
+
+.activeFilter {
+    margin: 3px;
+    padding: 0.2rem;
+    border-radius: 3px;
+    border: 2px solid gray;
+    background: none;
+    color: white;
+    font-weight: 550;
+    cursor: pointer;
+    user-select: none;
+}
+
+.tableWrapper {
+    max-width: 1200px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.table {
+	max-width: 90%;
+	margin-inline: auto;
+	user-select: none;
+	cursor: pointer;
+	box-shadow: black 2px 2px 8px 0px;
+	position: relative;
+	z-index: 0;
+	background: unset;
+}
+
+tbody {
+	scroll-margin-top: 37px;
+}
+
+.sortControls {
+	background-color: rgb(42, 48, 54);
+	font-weight: 700;
+}
+
+.table thead {
+	position: sticky;
+	top: -1px;
+	z-index: 1;
+}
+
+.table thead th {
+	border: none;
+}
+
+.sortLocked {
+	cursor: auto;
+}
+
+.active, .sortOption:hover, #speciesFilterInput:hover, #speciesFilterCategory:hover, #speciesFilterInput:focus, #showHelpButton:hover, #saveFileInputWrapper:hover, .activeFilter:hover {
+	background: rgba(255, 255, 255, 0.075);
+}
+
+.sortAscending::before {
+	content: "↑";
+}
+
+.sortDescending::before {
+	content: "↓";
+}
+
+.table td, .table th {
+	padding: 0.4rem;
+	vertical-align: middle!important;
+}
+
+.speciesRow {
+	height: 85.8px;
+}
+
+.speciesDexIDWrapper {
+	min-width: 67.9px;
+	font-weight: 700;
+}
+
+.speciesSprite {
+	height: 64px;
+	width: 64px;
+}
+
+.infoNameName {
+	font-size: 1.2rem;
+}
+
+td.speciesNameWrapper {
+	font-weight: 700;
+}
+
+.typeWrapper {
+	width: 70.3px;
+	padding: 2px;
+	display: inline-block;
+	border-radius: 15px;
+	margin: 2px 3px;
+	font-weight: 550;
+	text-shadow: 1px 1px black;
+	border: 2px white solid;
+    box-shadow: 1px 2px #00000047;    
+}
+
+.speciesAbilitiesWrapper, .infoAbilitiesWrapper, .infoChangelogAbilityWrapper {
+	font-style: italic;
+}
+
+.speciesAbilitiesHidden, .infoAbilitiesHidden, .infoChangelogAbility0, .infoChangelogUnique {
+	color: rgb(255 107 188);
+    font-weight: 550;
+    text-shadow: 1px 1px black;
+}
+
+.speciesStatLabel {
+	font-style: italic;
+}
+
+.moveSplit {
+	height: 28px;
+}
+
+#speciesModal .sortOption {
+	width: 25%;
+}
+
+#speciesLearnsetPrevoExclusiveTable th:nth-of-type(2),
+#speciesLearnsetLevelUpTable th:nth-of-type(2)
+{
+	width: 75%;
+	text-indent: 25%;
+	text-align: left;
+}
+
+#speciesLearnsetTMHMTable th:nth-of-type(1), 
+#speciesLearnsetTutorTable th:nth-of-type(1), 
+#speciesLearnsetEggMovesTable th:nth-of-type(1)
+{
+	width: 100%;
+}
+
+.movesRow {
+	display: flex;
+	height: fit-content;
+	height: -moz-max-content;
+	position: relative;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.moveLevelWrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.movesRow td {
+	width: 25%;
+}
+
+td.moveNameWrapper {
+	text-align: center;
+	width: 100%;
+}
+
+td.moveTypeWrapper {
+	width: 25%;
+}
+
+td.moveDescriptionWrapper {
+	width: 100%;
+}
+
+.modal tbody {
+	scroll-margin-top: 67px;
+}
+
+.modal .sortLocked {
+	display: none;
+}
+
+.modal .table td {
+	border: none;
+}
+
+.modal .sortControls {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+@media (max-width: 991.98px) {
+	
+	#speciesTable tbody {
+		scroll-margin-top: 67px;
+	}
+	
+	#speciesTable .sortLocked {
+		display: none;
+	}
+	
+	#speciesTable .table td {
+		border: none;
+	}
+	
+	#speciesTable .sortControls {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	#speciesTable .sortOption {
+		width: 14.28%;
+		border: none;
+	}
+	
+	#speciesTable th:nth-of-type(1), #speciesTable th:nth-of-type(3), #speciesTable th:nth-of-type(5) {
+		width: 33.33%;
+	}
+	
+	.speciesRow {
+		position: relative;
+		height: fit-content;
+		height: -moz-max-content;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		border-top: solid thin #757575;
+	}
+	
+	.speciesDexIDWrapper {
+		position: absolute;
+		left: 21%;
+		top: 12%;
+	}
+	
+	.speciesSpriteWrapper, .speciesNameWrapper, #speciesTable .speciesTypesWrapper {
+		width: 33%;
+	}
+	
+	td.speciesNameWrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
+	.speciesAbilitiesWrapper {
+		width: 100%;
+		display: flex;
+		justify-content: space-evenly;
+	}
+	
+	.speciesStatWrapper {
+		width: 14%;
+	}
+}
+
+@media (max-width: 399.98px) {
+	.evoMethod {
+		font-size: 14px;
+	}
+	.infoTreeArrow {
+		font-size: 10px;
+	}
+}
