@@ -1,9 +1,13 @@
-function getAbilityName(ability, species) {
+function getAbilityName(ability, species, raw = false) {
 	if (ability[0] === 0)
 		return undefined;
 
-	const mappedAbility = getAbility(ability, species);
+	const mappedAbility = raw ? ability : getMappedAbility(ability, species);
 	return (abilities[mappedAbility[0]].names[mappedAbility[1]]);
+}
+
+function getMove(moveIdx, species, raw = false) {
+	return moves[raw ? moveIdx : getMappedMove(moveIdx, species)];
 }
 
 function getFullLearnset(mon) {
