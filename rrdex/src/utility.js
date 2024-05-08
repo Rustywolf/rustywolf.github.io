@@ -13,7 +13,7 @@ function getMove(moveIdx, species, raw = false) {
 function getFullLearnset(mon) {
 	let learnset = [];
 	if (mon.levelupMoves)
-		learnset.push(...mon.levelupMoves.map(x => x[0]));
+		learnset.push(...mon.levelupMoves.map(x => getMove(x[0]).ID));
 	if (mon.tmMoves)
 		learnset.push(...mon.tmMoves.map(x => tmMoves[x]));
 	if (mon.tutorMoves)

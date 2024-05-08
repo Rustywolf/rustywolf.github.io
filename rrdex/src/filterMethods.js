@@ -22,8 +22,6 @@ function setupFilters() {
 	buildFilter('Move', 4, Object.values(moves),
 		o => o.name,
 		(x,o) => getFullLearnset(x)
-			.map(m => getMove(m, x.ID))
-			.filter(m => !!m)
 			.find(m => m.ID == o.ID)
 	);
 	
