@@ -4,7 +4,7 @@ let cardData = null;
 
 async function generatePDF() {
     if (!cardData) {
-        const res = await fetch("https://digimoncard.dev/data.php");
+        const res = await fetch("https://digimoncard.dev/data8675309.php");
         cardData = await res.json();
     }
 
@@ -129,7 +129,7 @@ function loadImage(url, callback, errorCallback) {
         errorCallback();
     };
 
-    image.src = url;
+    image.src = url + "?def-not-from-cache";
 }
 
 function showError(message) {
